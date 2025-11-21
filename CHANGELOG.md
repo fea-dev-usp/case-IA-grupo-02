@@ -1,6 +1,6 @@
 # Changelog
 
-Todas as mudanças importantes deste projeto serão documentadas neste arquivo.
+Tudo que mudarmos no projeto será documentado nesse arquivo.
 
 ## [Unreleased]
 ### Planejado
