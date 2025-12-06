@@ -4,11 +4,17 @@ Tudo que mudarmos no projeto será documentado nesse arquivo.
 
 ## [Unreleased]
 ### Planejado
-- Término da leitura dos materiais (deadline: **30/11/2025**).
-- Definição do escopo inicial do projeto.
-- Início da implementação do projeto.
+- Término da leitura dos materiais (parte 3).
+- Estudar como obter os dados de maneira consistente.
+- Tentativa inicial de obtenção dos dados.
 
 ---
+##[0.1.2] - 2025-12-06
+###Atualizado
+- Leitura dos materiais
+- Discussão do tema a ser trabalhado: definimos que será com dados do SUS (biblioteca PySUS para obtenção dos microdados públicos)
+- Delimitação dos limites do nosso projeto
+- Reunião com tutores para domingo (12-06)
 
 ## [0.1.1] - 2025-11-28
 ### Atualizado
