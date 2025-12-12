@@ -16,7 +16,7 @@ Tudo que mudarmos no projeto será documentado nesse arquivo.
 
 
 ##[0.1.2] - 2025-12-06
-###Atualizado
+### Atualizado
 - Leitura dos materiais
 - Discussão do tema a ser trabalhado: definimos que será com dados do SUS (biblioteca PySUS para obtenção dos microdados públicos)
 - Delimitação dos limites do nosso projeto
