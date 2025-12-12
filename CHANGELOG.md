@@ -9,6 +9,12 @@ Tudo que mudarmos no projeto será documentado nesse arquivo.
 - Tentativa inicial de obtenção dos dados.
 
 ---
+##[0.1.3] - 2025-12-12
+###Atualizado
+- Leitura da apostila 
+- Criação do capítulo novo
+
+
 ##[0.1.2] - 2025-12-06
 ###Atualizado
 - Leitura dos materiais
