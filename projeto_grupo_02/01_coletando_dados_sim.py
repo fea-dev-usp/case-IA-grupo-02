@@ -14,7 +14,7 @@ ESTADOS = [
     # Sul
     'PR', 'RS', 'SC'
 ]
-ANOS = [2020]
+ANOS = [2025]
 caminho_base = './data/raw/sim/'
 
 def baixar_sim():

@@ -4,7 +4,7 @@ import os
 
 # 1. Definir caminhos e variáveis
 input_path = './data/raw/sim/sim/'
-output_file = './data/processed/sim_2020_unificado.parquet'
+output_file = './data/processed/sim_2024_unificado.parquet'
 
 # Garante que a pasta de saída existe
 os.makedirs(os.path.dirname(output_file), exist_ok=True)
