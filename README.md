@@ -27,12 +27,12 @@ Utilizando uma Rede Neural (Autoencoder) para aprender o "padrão Brasil", detec
 
 O projeto foi dividido em dois notebooks:
 
-### 📓 `note0_dataset.ipynb`
+### `note0_dataset.ipynb`
 * **Extração:** Coleta automatizada de dados do **DATASUS** (SIH, SIM, SINASC) e **IBGE** via API (`pysus`, `sidrapy`).
 * **Tratamento:** Limpeza de nulos, normalização de nomes de municípios e cálculo de indicadores (ex: Taxa de Mortalidade por 1.000 nascidos).
 * **Output:** Gera o dataset limpo `DATASET_MESTRE_FINAL.csv`.
 
-### 📓 `note1_IA.ipynb` (Modelagem)
+### `note1_IA.ipynb` (Modelagem)
 * **Fase 1: Clustering (Não-Supervisionado)**
     * Algoritmo: **K-Means**.
     * Otimização: Método do Cotovelo (Elbow Method).
@@ -96,7 +96,7 @@ O projeto segue um fluxo lógico. Não inverta a ordem.
 1. Abra o notebook `note0_dataset.ipynb`.
 2. Certifique-se de que o Kernel do Jupyter está apontando para o seu ambiente `.venv`.
 3. Execute todas as células (`Run All`).
-4. **Verificação:** Ao final, confira se o arquivo `data/DATASET_MESTRE_FINAL.csv` foi criado com sucesso.
+4. **Verificação:** Ao final, confira se o arquivo `DATASET_MESTRE_FINAL.csv` foi criado com sucesso.
 5. Abra o notebook `note1_IA.ipynb`.
 6. Este notebook lerá o CSV gerado no passo anterior.
 7. Execute as células sequencialmente para:
