@@ -5,7 +5,7 @@
 ## Sobre o Projeto
 Este projeto aplica técnicas de **Data Science, Machine Learning (K-Means)** e **Deep Learning (Autoencoders)** para mapear a qualidade da saúde pública nos 5.570 municípios brasileiros.
 
-Ao cruzar dados de mortalidade, economia (PIB), saneamento e gestão hospitalar, o sistema ignora as divisões geográficas tradicionais para encontrar "Brasis" semelhantes baseados em dados, além de identificar anomalias estatísticas (cidades que fogem de qualquer padrão).
+Ao cruzar dados de mortalidade, economia (PIB), saneamento e gestão hospitalar, o sistema ignora as divisões geográficas tradicionais para encontrar "Brasis" semelhantes baseados em dados, além de identificar anomalias estatísticas.
 
 ---
 
