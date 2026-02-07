@@ -107,6 +107,7 @@ O projeto segue um fluxo lógico. Não inverta a ordem.
 
 ---
 
-### ⚠️ Solução de Problemas Comuns ⚠️
+### ⚠️ Problemas Comuns ⚠️
 
 * **Erro de "Module not found":** Certifique-se de que você instalou o `requirements.txt` **dentro** do ambiente virtual ativado e que o seu Jupyter Notebook está usando o kernel desse mesmo ambiente.
+* Se você está tentando instalar a biblioteca pysus no **Windows** usando o Python 3.13 (que é muito novo). A pysus depende de uma biblioteca chamada pyreaddbc (para ler arquivos do governo), que é escrita em C. Como o **Windows** não tem um "Compilador de C" instalado e não existem versões prontas para o Python 3.13 ainda, a instalação "explode". Solução: Usar **Google Colab** para gerar o DATASET_FINAL_LIMPO.csv.
