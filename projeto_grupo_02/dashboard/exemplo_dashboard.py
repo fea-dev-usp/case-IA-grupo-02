@@ -2,6 +2,24 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import base64
+import geopandas as gpd
+import json
+
+@st.cache_data
+def load_map_data():
+    # 1. Carrega o GeoJSON pesado
+    gdf = gpd.read_file("brasil_municipios.json")
+    
+    # 2. Simplifica a geometria (O Pulo do Gato para performance)
+    # tolerance=0.005 converte curvas complexas em retas aproximadas
+    gdf['geometry'] = gdf.geometry.simplify(tolerance=0.005)
+    
+    # 3. Converte de volta para JSON puro que o Plotly entende
+    # Isso retorna um dicionário Python padrão
+    return json.loads(gdf.to_json())
+
+# Carrega o mapa (pode demorar uns segundos na primeira vez)
+geojson_brasil = load_map_data()
 
 # Configuração da página
 st.set_page_config(page_title="Dashboard Municipal 360º", layout="wide", page_icon="fea_dev_logo.jpg")
@@ -130,22 +148,48 @@ st.markdown("---")
 # --- 5. VISUALIZAÇÕES ---
 tab1, tab2, tab3 = st.tabs(["💰 Economia vs Saúde", "🏥 Eficiência Hospitalar", "📋 Dados Brutos"])
 
-with tab1:
-    st.subheader("O Dinheiro traz Saúde?")
-    fig_corr = px.scatter(
-        df_filtered, 
-        x='pib_per_capita', 
-        y='taxa_mortalidade_infantil',
-        color='UF',
-        size='populacao',
-        hover_name='mun',
-        hover_data=['obitos_infantil', 'prenatal_ok'],
-        log_x=True, 
-        title="PIB per Capita (Log) vs Taxa de Mortalidade Infantil"
+with tab1: # Ou onde você preferir
+    st.subheader("Mapa Interativo de Calor")
+    
+    # Dropdown para escolher o que pintar no mapa
+    metric_map = st.selectbox(
+        "Escolha o indicador para o mapa:",
+        ['taxa_mortalidade_infantil', 'pib_per_capita', 'pct_prenatal', 'pct_icsap']
     )
-    # Ajuste para tema escuro no gráfico também, se quiser
-    fig_corr.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-    st.plotly_chart(fig_corr, use_container_width=True)
+    
+    # GARANTIA DE INTEGRIDADE:
+    # O Plotly só vai pintar se o tipo de dado for igual (String com String)
+    df_filtered['cod'] = df_filtered['cod'].astype(str)
+
+    fig_map = px.choropleth(
+        df_filtered,
+        geojson=geojson_brasil,      # O arquivo geográfico simplificado
+        locations='cod',             # Coluna do seu CSV/DataFrame
+        featureidkey="properties.id", # Onde está o ID no GeoJSON (AJUSTE SE PRECISAR)
+        color=metric_map,            # A cor depende dessa coluna
+        hover_name='mun',            # O que aparece ao passar o mouse
+        hover_data=['populacao', 'UF'],
+        color_continuous_scale="Reds", # Escala de cor (ex: 'Viridis', 'Blues')
+        title=f"Mapa de {metric_map} por Município"
+    )
+
+    # Ajuste fino do layout do mapa para focar no Brasil
+    fig_map.update_geos(fitbounds="locations", visible=False)
+    fig_map.update_layout(margin={"r":0,"t":30,"l":0,"b":0})
+
+    fig_map.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)', # Fundo externo transparente
+    plot_bgcolor='rgba(0,0,0,0)',  # Fundo interno transparente
+    margin={"r":0,"t":0,"l":0,"b":0}, # Remove as margens brancas sobrando
+    font_color="white" # Garante que legendas/títulos fiquem legíveis no fundo preto
+    )
+
+    fig_map.update_geos(
+    bgcolor='rgba(0,0,0,0)', 
+    visible=False # Esconde a moldura do mapa-múndi se estiver aparecendo
+    )
+    
+    st.plotly_chart(fig_map, use_container_width=True)
 
 with tab2:
     col_g1, col_g2 = st.columns(2)
