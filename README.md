@@ -118,10 +118,10 @@ Desenvolvemos uma aplicação web interativa utilizando **Streamlit**.
 ### Como Executar o Dashboard
 Certifique-se de estar no diretório raiz do projeto e com o ambiente virtual ativado:
 
-# Instale as dependências extras (caso ainda não tenha feito)
+#### Instale as dependências extras (caso ainda não tenha feito)
 pip install streamlit plotly
 
-# Execute a aplicação
+### Execute a aplicação
 1. Abra o terminal.
 2. Navegue até a pasta onde está o arquivo `dash.py` (o diretório 'dashboard').
 3. Coloque o arquivo `DATASET_CLUSTERIZADO.csv`na pasta dashboard.
