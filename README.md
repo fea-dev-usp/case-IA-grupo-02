@@ -107,6 +107,28 @@ O projeto segue um fluxo lógico. Não inverta a ordem.
 
 ---
 
+## Dashboard Interativo (Data App)
+
+Desenvolvemos uma aplicação web interativa utilizando **Streamlit**.
+
+### Funcionalidades Principais:
+* **Mapa de Calor Geográfico:** Visualização espacial dos 4 Clusters e indicadores de saúde (Mortalidade, Pré-Natal, ICSAP).
+* **Filtros Dinâmicos:** Segmentação por Estado (UF), Faixa Populacional e Perfil Socioeconômico.
+
+### Como Executar o Dashboard
+Certifique-se de estar no diretório raiz do projeto e com o ambiente virtual ativado:
+
+# Instale as dependências extras (caso ainda não tenha feito)
+pip install streamlit plotly
+
+# Execute a aplicação
+1. Abra o terminal.
+2. Navegue até a pasta onde está o arquivo `dash.py` (o diretório 'dashboard').
+3. Coloque o arquivo `DATASET_CLUSTERIZADO.csv`na pasta dashboard.
+4. Execute o comando: streamlit run dash.py
+
+---
+
 ### ⚠️ Solução de Problemas Comuns ⚠️
 
 * **Erro de "Module not found":** Certifique-se de que você instalou o `requirements.txt` **dentro** do ambiente virtual ativado e que o seu Jupyter Notebook está usando o kernel desse mesmo ambiente.
